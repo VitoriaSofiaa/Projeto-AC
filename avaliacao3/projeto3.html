@@ -9,9 +9,7 @@
 <body>
     <h1>Escolha a CPU Ideal</h1>
 
-    <!-- Contêiner principal -->
     <div id="main-container">
-        <!-- Texto introdutório -->
         <div id="intro-text">
             <p>
                 Nosso sistema foi criado para revolucionar a maneira como você escolhe uma CPU, tornando o processo mais rápido, 
@@ -25,7 +23,6 @@
             </p>
         </div>
 
-        <!-- Formulário -->
         <form id="cpuForm">
             <div class="form-group">
                 <label for="performance">Desempenho:</label>
@@ -65,7 +62,6 @@
         </form>
     </div>
 
-    <!-- Output da recomendação -->
     <div id="output" class="output" style="display: none;"></div>
 
     <script>
@@ -166,7 +162,6 @@
                 return;
             }
 
-    // Formatar as informações
             const outputDiv = document.getElementById('output');
             outputDiv.style.display = 'block';
             outputDiv.innerHTML = `
