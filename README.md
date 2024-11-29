@@ -27,4 +27,17 @@ Recomendações personalizadas de CPUs.
 
 ## 🌐 Instalação
 
+### Linux
+No terminal, siga os comandos: 
+```bash
+git clone 'https://github.com/wederf13/Forca.git'
+cd Forca
+make
+```
+#### Uso
+Para executar:
+```bash
+./forca
+```
+
 
