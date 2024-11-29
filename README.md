@@ -22,7 +22,9 @@ Campo de entrada para descrição das atividades do usuário.
 Recomendações personalizadas de CPUs.
 
 ## 💻 Tecnologias utilizadas 
-HTML 
-CSS
+- HTML 
+- CSS
 
-## Instalação
+## 🌐 Instalação
+
+
