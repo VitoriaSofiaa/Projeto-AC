@@ -154,3 +154,13 @@ button:hover {
         width: 90%;
     }
 }
+
+#output h2, #output h3 {
+    color: #007BFF;
+    margin-bottom: 10px;
+}
+
+#output p {
+    margin: 5px 0;
+    line-height: 1.5;
+}
