@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha de CPU</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Escolha a CPU Ideal</h1>
+
+    <!-- Contêiner principal -->
+    <div id="main-container">
+        <!-- Texto introdutório -->
+        <div id="intro-text">
+            <p>
+                Nosso sistema foi criado para revolucionar a maneira como você escolhe uma CPU, tornando o processo mais rápido, 
+                inteligente e personalizado. Sabemos que encontrar o equilíbrio perfeito entre desempenho, consumo de energia, 
+                custo e aplicação pode ser desafiador.
+                Com este sistema, você define suas prioridades de forma simples e intuitiva. Quer uma CPU de alto desempenho para 
+                tarefas exigentes? Ou prefere uma opção mais econômica e eficiente em energia? Independentemente do seu foco, 
+                analisamos suas preferências e sugerimos o design ideal para atender às suas necessidades.
+                Este é o seu assistente inteligente para decisões precisas e eficientes. Experimente e descubra como escolher a 
+                CPU perfeita pode ser fácil e prático!
+            </p>
+        </div>
+
+        <!-- Formulário -->
+        <form id="cpuForm">
+            <div class="form-group">
+                <label for="performance">Desempenho:</label>
+                <select id="performance" required>
+                    <option value="basico">Básico</option>
+                    <option value="moderado">Moderado</option>
+                    <option value="alto">Alto</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="budget">Custo:</label>
+                <select id="budget" required>
+                    <option value="baixo">Baixo (~R$ 1.000)</option>
+                    <option value="medio">Médio (~R$ 3.000)</option>
+                    <option value="alto">Alto (≥ R$ 4.500)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="energy">Consumo de Energia:</label>
+                <select id="energy" required>
+                    <option value="baixo">Baixo (≤ 65W)</option>
+                    <option value="medio">Médio (65W - 125W)</option>
+                    <option value="alto">Alto (≥ 125W)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="application">Tipo de Aplicação:</label>
+                <select id="application" required>
+                    <option value="jogos">Jogos</option>
+                    <option value="edicao">Edição de Vídeo</option>
+                    <option value="iot">IoT</option>
+                    <option value="ia">Inteligência Artificial</option>
+                    <option value="transmissao">Transmissão ao Vivo</option>
+                </select>
+            </div>
+            <button type="button" onclick="recommendCPU()">Obter Recomendação</button>
+        </form>
+    </div>
+
+    <!-- Output da recomendação -->
+    <div id="output" class="output" style="display: none;"></div>
+
+    <script>
+        const cpuRecommendations = {
+            basico: {
+                baixo: "Intel Core i3-12100, AMD Ryzen 5 5600G (Tarefas básicas e IoT)",
+                medio: "Intel Atom x6000E, Raspberry Pi (ARM Cortex)",
+                alto: "N/A"
+            },
+            moderado: {
+                baixo: "Intel Core i5-12600K, AMD Ryzen 5 7600",
+                medio: "Intel Core i5-13600K, AMD Ryzen 7 5700X",
+                alto: "N/A"
+            },
+            alto: {
+                baixo: "N/A",
+                medio: "AMD Ryzen 7 7800X3D, Intel Core i7-13700K",
+                alto: "Intel Xeon, AMD Ryzen Threadripper PRO"
+            },
+            aplicacoes: {
+                jogos: "AMD Ryzen 9 7950X3D, Intel Core i9-13900K (Jogos de alta performance)",
+                edicao: "Intel Core i7-12700K, AMD Ryzen 7 5800X",
+                iot: "ESP32, Intel Atom x6000E (Eficiência energética para IoT)",
+                ia: "AMD Threadripper PRO, Intel Xeon (Cargas pesadas para IA)",
+                transmissao: "AMD Ryzen 9 7950X3D, Intel EPYC 9654"
+            }
+        };
+
+        function recommendCPU() {
+            const performance = document.getElementById('performance').value;
+            const budget = document.getElementById('budget').value;
+            const energy = document.getElementById('energy').value;
+            const application = document.getElementById('application').value;
+
+            const performanceRecommendation = cpuRecommendations[performance][budget];
+            const applicationRecommendation = cpuRecommendations.aplicacoes[application];
+
+            let recommendation = `**Baseado no desempenho e custo:** ${performanceRecommendation || "Sem recomendação disponível"}.\n`;
+            recommendation += `**Baseado na aplicação:** ${applicationRecommendation}.`;
+
+            const outputDiv = document.getElementById('output');
+            outputDiv.style.display = 'block';
+            outputDiv.textContent = recommendation;
+        }
+    </script>
+</body>
+</html>

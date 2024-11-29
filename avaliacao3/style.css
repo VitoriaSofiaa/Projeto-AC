@@ -1,0 +1,156 @@
+/* Estilo geral */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #e9f0fa, #f0f4f8); /* Fundo com gradiente azul claro */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Estilo para o título */
+h1 {
+    margin: 20px 0;
+    font-size: 2.5rem;
+    color: #007bff; /* Azul claro */
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Container principal */
+#main-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    gap: 20px;
+}
+
+/* Texto introdutório */
+#intro-text {
+    width: 45%;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #4a4a4a;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#intro-text:hover {
+    transform: translateY(-5px);
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Container para o formulário */
+#cpuForm {
+    width: 45%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    border: 1px solid #dde3e8;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#cpuForm:hover {
+    transform: translateY(-5px);
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo dos grupos de formulário */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Rótulos */
+label {
+    display: block;
+    font-weight: bold;
+    color: #4a4a4a;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+/* Campos de seleção */
+select {
+    padding: 12px;
+    width: 100%;
+    max-width: 100%;
+    border: 1px solid #dde3e8;
+    border-radius: 8px;
+    background-color: #f8fafc;
+    font-size: 1rem;
+    color: #333;
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+/* Botão */
+button {
+    padding: 12px 20px;
+    width: 100%;
+    background: linear-gradient(to right, #007bff, #0056b3);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: linear-gradient(to right, #0056b3, #003f7f);
+    transform: translateY(-2px);
+}
+
+/* Output da recomendação */
+.output {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #dde3e8;
+    background-color: #f8fafc;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.output:hover {
+    transform: translateY(-5px);
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Ajuste responsivo */
+@media (max-width: 768px) {
+    #main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #cpuForm, #intro-text {
+        width: 90%;
+    }
+}
