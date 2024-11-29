@@ -41,7 +41,8 @@ Para executar:
 ```
 ### Windows 
 ```bash
-Baixar o Arquivo Zip
+Download Zip
+Abrir Index
 ```
 
 
