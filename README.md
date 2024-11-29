@@ -30,14 +30,18 @@ Recomendações personalizadas de CPUs.
 ### Linux
 No terminal, siga os comandos: 
 ```bash
-git clone 'https://github.com/wederf13/Forca.git'
-cd Forca
+git clone 'https://github.com/VitoriaSofiaa/Projeto-AC.git'
+cd Projeto-AC
 make
 ```
 #### Uso
 Para executar:
 ```bash
 ./forca
+```
+### Windows 
+```bash
+
 ```
 
 
