@@ -20,3 +20,9 @@ Explicações claras e didáticas sobre a escolha.
 Interface web simples e intuitiva.
 Campo de entrada para descrição das atividades do usuário.
 Recomendações personalizadas de CPUs.
+
+## 💻 Tecnologias utilizadas 
+HTML 
+CSS
+
+## Instalação
