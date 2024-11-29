@@ -71,19 +71,78 @@
     <script>
         const cpuRecommendations = {
             basico: {
-                baixo: "Intel Core i3-12100, AMD Ryzen 5 5600G (Tarefas básicas e IoT)",
-                medio: "Intel Atom x6000E, Raspberry Pi (ARM Cortex)",
-                alto: "N/A"
+                baixo:{
+                    modelo: "Intel Core i3-12100, AMD Ryzen 5 5600G",
+                    arquitetura: "CISC",
+                    cache: "6MB L3, 512KB L2",
+                    frequencia: "3.3GHz Base, 4.4GHz Boost",
+                    justificativa: "Projetada para tarefas básicas e custo-benefício em sistemas desktop."
+                },
+                medio: {
+                    modelo: "Intel Atom x6000E, Raspberry Pi (ARM Cortex)",
+                    arquitetura: "RISC",
+                    cache: "1MB L2",
+                    frequencia: "1.5GHz Base",
+                    justificativa: "Ideal para aplicações embarcadas e dispositivos IoT devido à eficiência energética."
+                },
+                alto: {
+                    modelo: "N/A",
+                    arquitetura: "N/A",
+                    cache: "N/A",
+                    frequencia: "N/A",
+                    justificativa: "Não existem opções disponíveis nesse segmento."
+                },
+
             },
             moderado: {
-                baixo: "Intel Core i5-12600K, AMD Ryzen 5 7600",
-                medio: "Intel Core i5-13600K, AMD Ryzen 7 5700X",
-                alto: "N/A"
+                baixo: {
+                    modelo: "Intel Core i5-12600K, AMD Ryzen 5 7600",
+                    arquitetura: "CISC",
+                    cache: "10MB L3, 1.25MB L2",
+                    frequencia: "3.4GHz Base, 4.9GHz Boost",
+                    justificativa: "Boa escolha para desktops intermediários com multitarefa eficiente."
+                },
+
+                medio: {
+                    modelo: "Intel Core i5-13600K, AMD Ryzen 7 5700X",
+                    arquitetura: "CISC",
+                    cache: "12MB L3, 2MB L2",
+                    frequencia:  "3.6GHz Base, 5.1GHz Boost",
+                    justificativa: "Adequado para produtividade e uso em jogos moderados.",
+                },
+                
+                alto: {
+                    modelo: "Intel Core i7-13700K, AMD Ryzen 7 7800X3D",
+                    arquitetura: "CISC",
+                    cache: "16MB L3, 4MB L2",
+                    frequencia: "3.6GHz Base, 5.0GHz Boost",
+                    justificativa: "Desempenho superior para jogos e aplicações de edição de vídeo."
+                }
             },
+
             alto: {
-                baixo: "N/A",
-                medio: "AMD Ryzen 7 7800X3D, Intel Core i7-13700K",
-                alto: "Intel Xeon, AMD Ryzen Threadripper PRO"
+                baixo: {
+                    modelo: "N/A",
+                    arquitetura: "N/A",
+                    cache: "N/A",
+                    frequencia: "N/A",
+                    justificativa: "Não existem opções disponíveis nesse segmento."
+                },
+                medio: {
+                    modelo: "Intel Core i9-13900K, AMD Ryzen 9 7950X3D",
+                    arquitetura: "CISC",
+                    cache: "24MB L3, 4MB L2",
+                    frequencia: "3.5GHz Base, 5.0GHz Boost",
+                    justificativa: "Alta performance para jogos e aplicações de edição de vídeo."
+                },
+
+                alto: {
+                    modelo: "Intel Xeon, AMD Threadripper PRO",
+                    arquitetura: "CISC",
+                    cache: "128MB L3, 8MB L2",
+                    frequencia: "3.8GHz Base, 4.5GHz Boost",
+                    justificativa: "Projetado para cargas pesadas de IA e transmissão ao vivo."
+                }
             },
             aplicacoes: {
                 jogos: "AMD Ryzen 9 7950X3D, Intel Core i9-13900K (Jogos de alta performance)",
@@ -97,19 +156,30 @@
         function recommendCPU() {
             const performance = document.getElementById('performance').value;
             const budget = document.getElementById('budget').value;
-            const energy = document.getElementById('energy').value;
             const application = document.getElementById('application').value;
 
-            const performanceRecommendation = cpuRecommendations[performance][budget];
+            const recommendation = cpuRecommendations[performance][budget];
             const applicationRecommendation = cpuRecommendations.aplicacoes[application];
 
-            let recommendation = `**Baseado no desempenho e custo:** ${performanceRecommendation || "Sem recomendação disponível"}.\n`;
-            recommendation += `**Baseado na aplicação:** ${applicationRecommendation}.`;
+            if (!recommendation || recommendation.modelo === "N/A") {
+                alert("Não há recomendação disponível para a combinação escolhida.");
+                return;
+            }
 
+    // Formatar as informações
             const outputDiv = document.getElementById('output');
             outputDiv.style.display = 'block';
-            outputDiv.textContent = recommendation;
-        }
+            outputDiv.innerHTML = `
+                <h2>Recomendação de CPU:</h2>
+                <p><strong>Modelo:</strong> ${recommendation.modelo}</p>
+                <p><strong>Arquitetura:</strong> ${recommendation.arquitetura}</p>
+                <p><strong>Níveis de Cache:</strong> ${recommendation.cache}</p>
+                <p><strong>Frequência:</strong> ${recommendation.frequencia}</p>
+                <p><strong>Justificativa Técnica:</strong> ${recommendation.justificativa}</p>
+                <h3>Baseado na Aplicação:</h3>
+                <p>${applicationRecommendation}</p>
+    `;
+}
     </script>
 </body>
 </html>
