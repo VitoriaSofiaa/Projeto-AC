@@ -37,11 +37,11 @@ make
 #### Uso
 Para executar:
 ```bash
-./forca
+./projeto-ac
 ```
 ### Windows 
 ```bash
-
+Baixar o Arquivo Zip
 ```
 
 
