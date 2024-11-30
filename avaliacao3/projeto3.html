@@ -9,7 +9,9 @@
 <body>
     <h1>Escolha a CPU Ideal</h1>
 
+    <!-- Contêiner principal -->
     <div id="main-container">
+        <!-- Texto introdutório -->
         <div id="intro-text">
             <p>
                 Nosso sistema foi criado para revolucionar a maneira como você escolhe uma CPU, tornando o processo mais rápido, 
@@ -23,6 +25,7 @@
             </p>
         </div>
 
+        <!-- Formulário -->
         <form id="cpuForm">
             <div class="form-group">
                 <label for="performance">Desempenho:</label>
@@ -62,6 +65,7 @@
         </form>
     </div>
 
+    <!-- Output da recomendação -->
     <div id="output" class="output" style="display: none;"></div>
 
     <script>
@@ -141,11 +145,11 @@
                 }
             },
             aplicacoes: {
-                jogos: "AMD Ryzen 9 7950X3D, Intel Core i9-13900K (Jogos de alta performance)",
-                edicao: "Intel Core i7-12700K, AMD Ryzen 7 5800X",
-                iot: "ESP32, Intel Atom x6000E (Eficiência energética para IoT)",
-                ia: "AMD Threadripper PRO, Intel Xeon (Cargas pesadas para IA)",
-                transmissao: "AMD Ryzen 9 7950X3D, Intel EPYC 9654"
+                jogos: "Baseado na sua escolha de jogos, recomendamos CPUs com alto desempenho e frequência para uma experiência de jogo suave.",
+                edicao: "Para edição de vídeo, sugerimos CPUs com múltiplos núcleos e cache L3 para renderização rápida e eficiente.",
+                iot: "Em aplicações IoT, CPUs com baixo consumo de energia e arquitetura RISC são ideais para dispositivos embarcados.",
+                ia: "Para tarefas de IA, recomendamos CPUs com alta capacidade de processamento e cache L3 para cálculos complexos.",
+                transmissao: "Para transmissão ao vivo, CPUs com alta frequência e cache L2 são essenciais para streaming sem interrupções."
             }
         };
 
@@ -162,6 +166,7 @@
                 return;
             }
 
+    // Formatar as informações
             const outputDiv = document.getElementById('output');
             outputDiv.style.display = 'block';
             outputDiv.innerHTML = `
@@ -171,8 +176,9 @@
                 <p><strong>Níveis de Cache:</strong> ${recommendation.cache}</p>
                 <p><strong>Frequência:</strong> ${recommendation.frequencia}</p>
                 <p><strong>Justificativa Técnica:</strong> ${recommendation.justificativa}</p>
-                <h3>Baseado na Aplicação:</h3>
+                <h2>Recomendação de Aplicação:</h2>
                 <p>${applicationRecommendation}</p>
+                
     `;
 }
     </script>
