@@ -34,7 +34,7 @@ git clone 'https://github.com/VitoriaSofiaa/Projeto-AC.git'
 cd Projeto-AC
 make
 ```
-#### Uso
+##### Uso
 Para executar:
 ```bash
 ./projeto-ac
